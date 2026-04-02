@@ -1,5 +1,13 @@
 # 🌤 Weather Bot
 
+![Tests](https://github.com/afreisinger/weather-bot/actions/workflows/test.yml/badge.svg)
+![Build](https://github.com/afreisinger/weather-bot/actions/workflows/build.yml/badge.svg)
+![GitHub release](https://img.shields.io/github/v/release/afreisinger/weather-bot)
+![GHCR](https://img.shields.io/badge/GHCR-available-blue)
+![Docker Pulls](https://img.shields.io/docker/pulls/afreisinger/weather-bot)
+![Docker Image Version](https://img.shields.io/docker/v/afreisinger/weather-bot?sort=semver)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 A Telegram bot that provides real-time weather information powered by the **OpenWeather OneCall 3.0 API**. It supports current conditions, multi-day forecasts, hourly forecasts, and weather alerts — all accessible via Telegram commands or a CLI tool.
 
 The project is built with Python 3.12, aiogram 3.x, and can be easily integrated with OpenClaw for agent automation or LLM pipelines
