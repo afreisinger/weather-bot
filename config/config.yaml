@@ -1,0 +1,5 @@
+weather:
+  default_city: "Buenos Aires"
+  units: "metric"
+  forecast_days: 3
+  forecast_hours: 12

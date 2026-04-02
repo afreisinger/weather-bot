@@ -1,0 +1,31 @@
+services:
+  weather-bot:
+    build: .
+    container_name: weather-bot
+
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./config:/app/config
+      - ./logs:/var/log/weather 
+    deploy:
+      replicas: 1
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    command: python -m weather.bot.main
+
+    healthcheck:
+      test: ["CMD", "pgrep", "-f", "weather.bot.main"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

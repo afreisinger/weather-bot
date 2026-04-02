@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtualenv
+.venv/
+venv/
+
+# Tests
+tests/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Config sensible
+.env
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Temp
+tmp/
+.coverage
+.pytest_cache/
