@@ -26,11 +26,11 @@ def register_handlers(router: Router) -> None:
     @router.message(Command("weather"))
     async def cmd_weather(message: types.Message) -> None:
         """
-        /weather         → current weather for the default city
-        /weather <city>  → current weather for <city>
+        /current         → current weather for the default city
+        /current <city>  → current weather for <city>
         """
-        raw = (message.text or "").replace("/weather", "", 1).strip()
-        # Support "/weather forecast <city> <days>"
+        raw = (message.text or "").replace("/current", "", 1).strip()
+        # Support "/current forecast <city> <days>"
         if raw.lower().startswith("forecast"):
             await _handle_forecast(message, raw)
             return
@@ -44,7 +44,7 @@ def register_handlers(router: Router) -> None:
             result = await _skill.current(city)
             await message.answer(result)
         except Exception as exc:
-            logger.exception("Error in /weather handler")
+            logger.exception("Error in /current handler")
             await message.answer(f"⚠️ Could not fetch weather: {exc}")
 
     @router.message(Command("forecast"))
@@ -129,7 +129,7 @@ async def _handle_forecast_hourly(message: types.Message, raw: str) -> None:
         hours = int(parts[-1])
         city_parts = parts[:-1]
 
-    # Soporte para "/weather forecast_hourly ..."
+    # Soporte para "/current forecast_hourly ..."
     if city_parts and city_parts[0].lower() == "forecast_hourly":
         city_parts = city_parts[1:]
 
